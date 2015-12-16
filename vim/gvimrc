@@ -1,0 +1,45 @@
+"+----------------------------------------------------------------------------+"
+"              _
+"   __ ___   _(_)_ __ ___  _ __ ___
+"  / _` \ \ / / | '_ ` _ \| '__/ __|
+" | (_| |\ V /| | | | | | | | | (__
+"  \__, | \_/ |_|_| |_| |_|_|  \___|
+"  |___/
+"
+" Created and maintenance by rytmrt <ryota.morita.3.8@gmail.com>
+"+----------------------------------------------------------------------------+"
+
+
+" Font
+set guifont=Ricty\ Regular\ for\ Powerline:h14
+
+
+" 透明度
+set transparency=4
+
+" ツールバーなし
+set guioptions-=T
+" メニューバーなし
+set guioptions-=m
+" 右スクロールバーなし
+set guioptions-=r
+set guioptions-=R
+" 左スクロールバーなし
+set guioptions-=l
+set guioptions-=L
+" 下スクロールバーなし
+set guioptions-=b
+
+
+set noimdisableactivate
+
+
+" カラースキーム
+colorscheme molokai
+
+
+" フルスクリーン設定
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+endif

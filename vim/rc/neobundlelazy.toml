@@ -1,0 +1,48 @@
+# Sample:
+# [[plugins]]
+# repository = 
+
+[[plugins]]
+repository = 'derekwyatt/vim-scala'
+filetypes = 'scala'
+
+[[plugins]]
+repository = 'fatih/vim-go'
+filetypes = 'go'
+
+[[plugins]]
+repository = 'mattn/emmet-vim'
+filetypes = ['html', 'php']
+
+[[plugins]]
+repository = 'hail2u/vim-css3-syntax'
+filetypes = ['html', 'css']
+
+[[plugins]]
+repository = 'slim-template/vim-slim'
+filetypes = 'slim'
+
+[[plugins]]
+repository = 'pangloss/vim-javascript'
+filetypes = ['html', 'js']
+
+[[plugins]]
+repository = 'kchmck/vim-coffee-script'
+filetypes = 'coffee'
+
+[[plugins]]
+repository = 'ekalinin/Dockerfile.vim'
+filetypes = 'docker'
+
+[[plugins]]
+repository = 'groenewege/vim-less'
+filetypes = 'less'
+
+#[[plugins]]
+#repository = 'thinca/vim-quickrun'
+#
+#[[plugins]]
+#repository = 'Shougo/vimshell'
+#
+#[[plugins]]
+#repository = 'ujihisa/unite-colorscheme'

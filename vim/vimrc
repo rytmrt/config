@@ -1,0 +1,64 @@
+"+----------------------------------------------------------------------------+"
+"        _
+" __   _(_)_ __ ___  _ __ ___ 
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__
+"   \_/ |_|_| |_| |_|_|  \___|
+"
+" Created and maintenance by rytmrt <ryota.morita.3.8@gmail.com>
+"+----------------------------------------------------------------------------+"
+
+set modelines=5
+set clipboard+=unnamed
+set ambiwidth=double
+
+syntax on
+set cursorline
+set number
+set visualbell
+set laststatus=2
+set background=dark
+set display=lastline
+set pumheight=10
+
+
+set hlsearch
+set ignorecase
+set smartcase
+
+
+" Edit
+if filereadable(expand('~/.vim/rc/edit.rc.vim'))
+  source ~/.vim/rc/edit.rc.vim
+endif
+
+" Mappings
+if filereadable(expand('~/.vim/rc/mappings.rc.vim'))
+  source ~/.vim/rc/mappings.rc.vim
+endif
+
+
+" Neobundle
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  filetype off
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+if neobundle#load_cache()
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#load_toml('~/.vim/rc/neobundle.toml')
+  call neobundle#load_toml('~/.vim/rc/neobundlelazy.toml', {'lazy' :1} )
+  NeoBundleSaveCache
+endif
+
+call neobundle#end()
+
+filetype plugin indent on
+
+
+
+" Plagins
+if filereadable(expand('~/.vim/rc/plugins.rc.vim'))
+  source ~/.vim/rc/plugins.rc.vim
+endif
