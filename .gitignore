@@ -8,6 +8,7 @@
 !/vim/undos/.gitkeep
 !/vim/backups/.gitkeep
 
+!/vim/bundle/neobundle.vim
 
 .netrwhist
 
