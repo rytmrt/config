@@ -11,3 +11,4 @@ git submodule init
 git submodule update
 ln -s ${abs_path}/vim ~/.vim
 ln -s ${abs_path}/vim/vimrc ~/.vimrc
+ln -s ${abs_path}/vim/gvimrc ~/.gvimrc
