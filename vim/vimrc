@@ -29,36 +29,20 @@ set smartcase
 
 " Edit
 if filereadable(expand('~/.vim/rc/edit.rc.vim'))
-  source ~/.vim/rc/edit.rc.vim
+    source ~/.vim/rc/edit.rc.vim
+endif
+
+" Encoding
+if filereadable(expand('~/.vim/rc/enciding.rc.vim'))
+    source ~/.vim/rc/encoding.rc.vim
 endif
 
 " Mappings
 if filereadable(expand('~/.vim/rc/mappings.rc.vim'))
-  source ~/.vim/rc/mappings.rc.vim
+    source ~/.vim/rc/mappings.rc.vim
 endif
 
-
-" Neobundle
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  filetype off
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-if neobundle#load_cache()
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#load_toml('~/.vim/rc/neobundle.toml')
-  call neobundle#load_toml('~/.vim/rc/neobundlelazy.toml', {'lazy' :1} )
-  NeoBundleSaveCache
-endif
-
-call neobundle#end()
-
-filetype plugin indent on
-
-
-
-" Plagins
-if filereadable(expand('~/.vim/rc/plugins.rc.vim'))
-  source ~/.vim/rc/plugins.rc.vim
+" vim-plug
+if filereadable(expand('~/.vim/rc/vim-plug.rc.vim'))
+    source ~/.vim/rc/vim-plug.rc.vim
 endif

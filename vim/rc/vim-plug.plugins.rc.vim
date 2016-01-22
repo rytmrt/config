@@ -1,11 +1,12 @@
-"================================================"
-" Sample:
-"if neobundle#tap('')
-"endif
-"================================================"
+let s:plug = {
+      \ "plugs": get(g:, 'plugs', {})
+      \ }
 
-if neobundle#tap('lightline.vim') "{{{
+function! s:plug.is_installed(name)
+  return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
+endfunction
 
+if s:plug.is_installed('lightline.vim')
   let g:lightline = {
         \ 'colorscheme': 'landscape',
         \ 'mode_map': { 'c': 'NORMAL' },
@@ -67,22 +68,18 @@ if neobundle#tap('lightline.vim') "{{{
     return winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 
-  call neobundle#untap()
-endif "}}}
-
-
-if neobundle#tap('vimfiler.vim')
-  let g:vimfiler_safe_mode_by_default = 0
-  let g:vimfiler_as_default_explorer = 1
-  noremap <F2> :VimFilerExplorer<CR><ESC>
 endif
 
 
-if neobundle#tap('molokai')
-  colorscheme molokai
+if s:plug.is_installed('vim-easy-align')
+  " ヴィジュアルモードで選択し，easy-align 呼んで整形．(e.g. vip<Enter>)
+  vmap <Enter> <Plug>(EasyAlign)
+  "easy-align を呼んだ上で，移動したりテキストオブジェクトを指定して整形．(e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 endif
 
-if neobundle#tap('vim-indent-guides')
+
+if s:plug.is_installed('vim-indent-guides')
   if has('gui') 
     let g:indent_guides_enable_on_vim_startup=1
     let g:indent_guides_guide_size = 1
@@ -97,15 +94,14 @@ if neobundle#tap('vim-indent-guides')
 endif
 
 
-if neobundle#tap('vim-fugitive')
-  noremap <C-g>s :Gstatus<CR>
-  noremap <C-g>d :Gdiff<CR>
+if s:plug.is_installed('vimfiler.vim')
+  let g:vimfiler_safe_mode_by_default = 0
+  let g:vimfiler_as_default_explorer = 1
+  noremap <F2> :VimFilerExplorer<CR><ESC>
 endif
 
 
-if neobundle#tap('vim-easy-align')
-  " ヴィジュアルモードで選択し，easy-align 呼んで整形．(e.g. vip<Enter>)
-  vnoremap <Enter> <Plug>(EasyAlign)
-  "nore easy-align を呼んだ上で，移動したりテキストオブジェクトを指定して整形．(e.g. gaip)
-  nnoremap ga <Plug>(EasyAlign)
+if s:plug.is_installed('molokai')
+  colorscheme molokai
 endif
+

@@ -1,14 +1,13 @@
-/vim/bundle/*
 /vim/swaps/*
-/vim/undos/*
-/vim/backups/*
-
-!/vim/bundle/.gitkeep
 !/vim/swaps/.gitkeep
+
+/vim/undos/*
 !/vim/undos/.gitkeep
+
+/vim/backups/*
 !/vim/backups/.gitkeep
 
-!/vim/bundle/neobundle.vim
+/vim/plugged
 
 .netrwhist
 
