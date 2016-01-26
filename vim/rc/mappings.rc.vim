@@ -1,6 +1,8 @@
 
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <C-h>; :<C-u>help<Space><C-r><C-w><CR>
