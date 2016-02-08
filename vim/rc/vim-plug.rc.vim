@@ -1,3 +1,7 @@
+"
+" Plugins
+"
+
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
   if !isdirectory(expand('~/.vim/plugged/vim-plug'))
@@ -8,26 +12,37 @@ if has('vim_starting')
 endif
 
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/vim-plug',
+    Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
-  Plug 'junegunn/vim-easy-align'
-  Plug 'vim-jp/vimdoc-ja'
-  Plug 'itchyny/lightline.vim'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'Shougo/unite.vim'
-  Plug 'Shougo/vimfiler.vim'
-  Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tomasr/molokai'
-  Plug 'tomtom/tcomment_vim'
+    Plug 'junegunn/vim-easy-align'
+    Plug 'vim-jp/vimdoc-ja'
+    Plug 'itchyny/lightline.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'Shougo/unite.vim'
+    Plug 'Shougo/vimfiler.vim'
+    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+    Plug 'Shougo/vimshell.vim'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
+    Plug 'cohama/agit.vim'
+    Plug 'gregsexton/gitv'
+    Plug 'tomtom/tcomment_vim'
+    Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
+    Plug 'kannokanno/previm', {'for': ['md', 'markdown']}
+    Plug 'tyru/open-browser.vim', {'for': ['md', 'markdown']}
+    Plug 'digitaltoad/vim-jade', {'for': 'jade'}
+    Plug 'mattn/emmet-vim', {'for': ['html', 'php']}
+    Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 
-  plug 'digitaltoad/vim-jade', {'for': 'jade'}
-  plug 'mattn/emmet-vim', {'for': ['html', 'php']}
-  plug 'hail2u/vim-css3-syntax', {'for', 'css'}
+    Plug 'rhysd/try-colorscheme.vim'
+    Plug 'tomasr/molokai'
 
 call plug#end()
 
 if filereadable(expand('~/.vim/rc/vim-plug.plugins.rc.vim'))
   source ~/.vim/rc/vim-plug.plugins.rc.vim
 endif
+
+
+colorscheme molokai
