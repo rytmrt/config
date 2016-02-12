@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'kannokanno/previm', {'for': ['md', 'markdown']}
     Plug 'tyru/open-browser.vim', {'for': ['md', 'markdown']}
     Plug 'digitaltoad/vim-jade', {'for': 'jade'}
-    Plug 'mattn/emmet-vim', {'for': ['html', 'php']}
+    Plug 'mattn/emmet-vim', {'for': ['html', 'php', 'jade']}
     Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 
     Plug 'rhysd/try-colorscheme.vim'
