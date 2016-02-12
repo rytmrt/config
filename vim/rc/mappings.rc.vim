@@ -8,6 +8,12 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <C-h>; :<C-u>help<Space><C-r><C-w><CR>
 
 
+nnoremap [filer] <Nop>
+nmap <Space>f [filer]
+
+nnoremap <silent> [filer]t :<C-u>VimFilerExplorer<CR>
+
+
 nnoremap [vimrc] <Nop>
 nmap <Space>v [vimrc]
 
