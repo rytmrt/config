@@ -14,3 +14,6 @@ ln -s ${abs_path}/vim/gvimrc ~/.gvimrc
 # NVIM
 mkdir -p ~/config/nvim/init.vim
 ln -s ${abs_path}/nvim/init.vim ~/config/nvim/init.vim
+
+# TMUX
+ln -s ${abs_path}/tmux/tmux.conf ~/.tmux.conf
