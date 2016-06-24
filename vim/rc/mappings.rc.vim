@@ -11,10 +11,7 @@ nnoremap <C-h>; :<C-u>help<Space><C-r><C-w><CR>
 
 
 " search
-nnoremap [search] <Nop>
-nmap <Space>s [search]
-
-nnoremap <silent> [search]n :<C-u>nohlsearch<CR><Esc>
+nnoremap <C-n> :<C-u>nohl<CR><Esc>
 
 
 " vimfiler
@@ -62,3 +59,10 @@ nnoremap <silent> [git]l   :<C-u>Agit<CR>
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+
+" vimshell
+nnoremap [vimshell] <Nop>
+nmap <Space>s [vimshell]
+
+nnoremap <silent> [vimshell] :<C-u>VimShell<CR>
