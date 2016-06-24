@@ -12,3 +12,5 @@
 .netrwhist
 
 
+# tmux
+/tmux/plugins
