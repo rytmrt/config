@@ -1,4 +1,21 @@
 
+set modelines=5
+set clipboard+=unnamed
+set ambiwidth=double
+
+set cursorline
+set number
+set visualbell
+set laststatus=2
+set background=dark
+set display=lastline
+set pumheight=10
+
+
+set hlsearch
+set ignorecase
+set smartcase
+
 set backspace=indent,eol,start
 
 set list
@@ -25,3 +42,4 @@ set backupdir=~/.vim/backups
 set undofile
 set undodir=~/.vim/undos
 
+syntax on

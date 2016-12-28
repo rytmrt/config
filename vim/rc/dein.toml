@@ -1,40 +1,111 @@
+#
+# dein_plugins.toml
+#
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
+
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+depends = ['vim-fugitive']
+hook_add = '''
+source ~/.vim/rc/plugins/lightline.rc.vim
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'itchyny/vim-parenmatch'
+on_event = 'InsertEnter'
+hook_add = '''
+  let g:loaded_matchparen = 1
+'''
 
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+  "" Set to transparent background
+  "autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+  "autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
+  "autocmd VimEnter,ColorScheme * highlight SignColumn ctermbg=none
+  "autocmd VimEnter,ColorScheme * highlight VertSplit ctermbg=none
+  "autocmd VimEnter,ColorScheme * highlight NonText ctermbg=none
+
+  autocmd ColorScheme * highlight Comment term=bold ctermfg=lightgreen gui=bold guifg=#90EE90
+  autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=black ctermfg=cyan
+  autocmd VimEnter,ColorScheme * highlight StatusLine ctermbg=white ctermfg=darkred
+  autocmd VimEnter,ColorScheme * highlight StatusLineNC ctermbg=white ctermfg=lightblue
+  autocmd VimEnter,ColorScheme * highlight VerSplit ctermbg=magenta ctermfg=magenta
+
+  let g:molokai_original = 1
+  let g:rehash256 = 1
+  colorscheme molokai
+'''
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+if has('gui') 
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_guide_size = 1
+else
+  let g:indent_guides_auto_colors=0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=235
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=240
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_start_level=2
+  let g:indent_guides_guide_size=1
+endif
+'''
 
 
-#-------------------------------------------------------------------------------
-# File type
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
-on_ft = 'javascript'
+
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+
+[[plugins]]
+repo = 'wavded/vim-stylus'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'tsuyoshiwada/slack-memo-vim'
+depends = 'mattn/webapi-vim'

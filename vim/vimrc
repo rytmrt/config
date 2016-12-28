@@ -8,47 +8,61 @@
 " Created and maintenance by rytmrt <ryota.morita.3.8@gmail.com>
 "+----------------------------------------------------------------------------+"
 
-set modelines=5
-set clipboard+=unnamed
-set ambiwidth=double
-
-set cursorline
-set number
-set visualbell
-set laststatus=2
-set background=dark
-set display=lastline
-set pumheight=10
-
-
-set hlsearch
-set ignorecase
-set smartcase
-
-
-" Edit
-if filereadable(expand('~/.vim/rc/edit.rc.vim'))
-    source ~/.vim/rc/edit.rc.vim
+if &compatible
+  set nocompatible
 endif
 
-" Encoding
-if filereadable(expand('~/.vim/rc/enciding.rc.vim'))
-    source ~/.vim/rc/encoding.rc.vim
+function! s:source_rc(path, ...) abort "{{{
+  let abspath = resolve(expand('~/.vim/rc/' . a:path))
+  execute 'source' fnameescape(abspath)
+  return
+endfunction "}}}
+
+if has('vim_starting')
+
+  if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+  endif
+
+  call s:source_rc('init.rc.vim')
 endif
 
-" Mappings
-if filereadable(expand('~/.vim/rc/mappings.rc.vim'))
-    source ~/.vim/rc/mappings.rc.vim
+call s:source_rc('dein.rc.vim')
+
+if !has('vim_starting')
+  call dein#call_hook('source')
+  call dein#call_hook('post_source')
+
+  syntax enable
+  filetype plugin indent on
 endif
 
-" Plugin Manager
-if filereadable(expand('~/.vim/rc/dein.rc.vim'))
-    source ~/.vim/rc/dein.rc.vim
+
+"---------------------------------------------------------------------------
+
+call s:source_rc('encoding.rc.vim')
+
+call s:source_rc('options.rc.vim')
+
+call s:source_rc('mappings.rc.vim')
+
+if has('nvim')
+  call s:source_rc('neovim.rc.vim')
 endif
 
-" Plugins
-if filereadable(expand('~/.vim/rc/plugins.rc.vim'))
-    source ~/.vim/rc/plugins.rc.vim
-endif
+"if IsWindows()
+"  call s:source_rc('windows.rc.vim')
+"else
+"  call s:source_rc('unix.rc.vim')
+"endif
+"
+"if !has('nvim') && has('gui_running')
+"  call s:source_rc('gui.rc.vim')
+"endif
 
-syntax on
+
+"---------------------------------------------------------------------------
+
+set secure
+
+" vim: foldmethod=marker

@@ -157,25 +157,34 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
+# SSHはxtermにする
+alias ssh='TERM=xterm ssh'
+
+# vim で nvim を起動
+alias vim='nvim'
+
 
 
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
+    darwin*) #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
+
+        # Vimの設定
         alias macvim='open -a /Applications/MacVim.app $1'
-        #alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-        alias docker-init='eval "$(docker-machine env default)"'
-        alias docker-start='docker-machine start default;docker-init'
         ;;
-    linux*)
-        #Linux用の設定
+
+    linux*) #Linux用の設定
         alias ls='ls -F --color=auto'
         ;;
 esac
 
+# .NET
+[ -s "/Users/morita.r/.dnx/dnvm/dnvm.sh" ] && . "/Users/morita.r/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 # vim:set ft=zsh:
+
+### Added by the Bluemix CLI
+source /usr/local/Bluemix/bx/zsh_autocomplete

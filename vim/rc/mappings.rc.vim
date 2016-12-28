@@ -2,67 +2,30 @@
 " Mappings
 "
 
+" Easy Normal-mode access.
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
-nnoremap <C-h>; :<C-u>help<Space><C-r><C-w><CR>
+" Scroll
+noremap <expr> <C-b> max([winheight(0) - 2, 1]) . "\<C-u>" . (line('.') < 1         + winheight(0) ? 'H' : 'L')
+noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+noremap <expr> <C-y> (line('w0') <= 1         ? 'k' : "\<C-y>")
+noremap <expr> <C-e> (line('w$') >= line('$') ? 'j' : "\<C-e>")
 
+" Clear highlight.
+nnoremap <Esc><Esc> :nohlsearch<CR>:match<CR>
 
-" search
-nnoremap <C-n> :<C-u>nohl<CR><Esc>
-
-
-" vimfiler
-nnoremap [filer] <Nop>
-nmap <Space>f [filer]
-
-nnoremap <silent> [filer]t :<C-u>VimFilerExplorer<CR>
-
-
-" vimrc
-nnoremap [vimrc] <Nop>
-nmap <Space>v [vimrc]
-
-nnoremap <silent> [vimrc]m :<C-u>edit $HOME/.vim/rc/mappings.rc.vim<CR>
-nnoremap <silent> [vimrc]d :<C-u>edit $HOME/.vim/rc/dein.rc.vim<CR>
-nnoremap <silent> [vimrc]p :<C-u>edit $HOME/.vim/rc/plugins.rc.vim<CR>
-nnoremap <silent> [vimrc]t :<C-u>edit $HOME/.vim/rc/dein.toml<CR>
-nnoremap <silent> [vimrc]l :<C-u>edit $HOME/.vim/rc/dein_lazy.toml<CR>
-nnoremap <silent> [vimrc]e :<C-u>edit $MYVIMRC<CR>
-nnoremap <silent> [vimrc]r :<C-u>source $MYVIMRC<CR>
-
-if has("gui_running")
-  nnoremap <silent> [vimrc]ge :<C-u>edit $MYGVIMRC<CR>
-  nnoremap <silent> [vimrc]gr :<C-u>source $MYGVIMRC<CR>
-endif
-
-
-"Unite
-nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>h
-
+" [Space]: Other usefull commands "{{{
+" Smart space mapping.
+nnoremap [Space] <Nop>
+nmap <Space> [Space]
 
 " Git
-nnoremap [git] <Nop>
-nmap <Space>g   [git]
+nnoremap <silent> [Space]gs   :<C-u>Gstatus<CR>
+nnoremap <silent> [Space]gl   :<C-u>Agit<CR>
 
-nnoremap <silent> [git]s   :<C-u>Gstatus<CR>
-nnoremap <silent> [git]pl   :<C-u>Gpull<CR>
-nnoremap <silent> [git]ph   :<C-u>Gpush<CR>
-nnoremap <silent> [git]l   :<C-u>Agit<CR>
+"}}}
 
 
-" EasyAlign
-vmap <Enter> <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-
-" vimshell
-nnoremap [vimshell] <Nop>
-nmap <Space>s [vimshell]
-
-nnoremap <silent> [vimshell] :<C-u>VimShell<CR>

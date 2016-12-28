@@ -1,16 +1,14 @@
 # EDITOR
 export GIT_EDITOR=vim
 
+# CACHE
+export CACHE=~/.cache
+
 # vagrant
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # sbin
-export PATH=$PATH:/sbin:/usr/sbin
-
-# Homebrew
-export PATH=/usr/local/bin:$PATH
-# Homebrew cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export PATH=/usr/local/sbin:/sbin:/usr/sbin:$PATH
 
 # Tools
 export PATH=$PATH:~/tools/bin
@@ -44,8 +42,15 @@ export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 
 
 # EMSDK Portable
-export EM_CONFIG=$HOME/.emscripten
-export EMSCRIPTEN=$HOME/tools/emsdk_portable/emscripten/1.35.0
-export PATH=$HOME/tools/emsdk_portable/clang/e1.35.0_64bit:$PATH
-export PATH=$HOME/tools/emsdk_portable/node/4.1.1_64bit/bin:$PATH
-export PATH=$HOME/tools/emsdk_portable/emscripten/1.35.0:$PATH
+#export EM_CONFIG=$HOME/.emscripten
+#export EMSCRIPTEN=$HOME/tools/emsdk_portable/emscripten/1.35.0
+#export PATH=$HOME/tools/emsdk_portable/clang/e1.35.0_64bit:$PATH
+#export PATH=$HOME/tools/emsdk_portable/node/4.1.1_64bit/bin:$PATH
+#export PATH=$HOME/tools/emsdk_portable/emscripten/1.35.0:$PATH
+
+
+# ---
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+# Homebrew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
