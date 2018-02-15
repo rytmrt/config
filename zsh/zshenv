@@ -49,6 +49,10 @@ export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 #export PATH=$HOME/tools/emsdk_portable/emscripten/1.35.0:$PATH
 
 
+# Android SDK platform tools
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+
+
 # ---
 # Homebrew
 export PATH=/usr/local/bin:$PATH

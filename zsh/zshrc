@@ -174,6 +174,9 @@ case ${OSTYPE} in
 
         # Vimの設定
         alias macvim='open -a /Applications/MacVim.app $1'
+
+        # NFD to NFC （濁点問題を解決してクリップボードへ）
+        alias nfd2nfc='() {echo "$1" | iconv -f UTF-8-MAC -t UTF-8 C}'
         ;;
 
     linux*) #Linux用の設定
@@ -188,3 +191,21 @@ esac
 
 ### Added by the Bluemix CLI
 source /usr/local/Bluemix/bx/zsh_autocomplete
+
+if [[ ! -n $TMUX && $- == *l* ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux new-session
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
+fi
