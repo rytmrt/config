@@ -1,22 +1,67 @@
-"--------------------------------------------------------------------
-"   _       _ _         _
-"  (_)_ __ (_) |___   _(_)_ __ ___
-"  | | '_ \| | __\ \ / / | '_ ` _ \
-"  | | | | | | |_ \ V /| | | | | | |
-"  |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 "
-" Created and maintenance by rytmrt <ryota.morita.3.8@gmail.com>
-"--------------------------------------------------------------------
-
-"terminal window
-tnoremap <C-w>h <C-\><C-n><C-w>h
-tnoremap <C-w>j <C-\><C-n><C-w>j
-tnoremap <C-w>k <C-\><C-n><C-w>k
-tnoremap <C-w>l <C-\><C-n><C-w>l
-
-" Font
-set guifont=Ricty\ Regular\ for\ Powerline:h14
-
-if filereadable(expand('~/.vim/vimrc'))
-  source ~/.vim/vimrc
+"dein Scripts-----------------------------
+"
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+" Required:
+set runtimepath+=/Users/morita.r/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
+  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+"End dein Scripts-------------------------
+
+" MY SETTINGS
+" For US Keyboard
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" nohlsearch
+nnoremap <ESC><ESC> <ESC>:nohlsearch<CR>
+
+" colorscheme
+set background=dark
+
+" Default Settings
+set number
+set expandtab
+set sw=4 ts=4 sts=4
+set autoindent
+set smartindent
+set clipboard+=unnamedplus
+set cursorline
+
+
+" Show list characters
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+
+
+" edit vimrc asap
+nnoremap <F5> :vsplit $MYVIMRC<CR>
+" source right after editing vimrc
+nnoremap <F4> :<C-u>source $MYVIMRC<CR>
+
+

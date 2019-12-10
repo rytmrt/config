@@ -1,0 +1,18 @@
+[[plugins]]
+repo = "tpope/vim-surround"
+
+[[plugins]]
+repo = "itchyny/lightline.vim"
+
+[[plugins]]
+repo = "tomasr/molokai"
+hook_add = """
+colorscheme molokai
+set t_Co=256
+"""
+
+[[plugins]]
+repo = "Shougo/defx.nvim"
+hook_add = """
+source ~/.config/nvim/plugins/defx.vim
+"""

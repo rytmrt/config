@@ -1,16 +1,9 @@
-/vim/swaps/*
-!/vim/swaps/.gitkeep
-
-/vim/undos/*
-!/vim/undos/.gitkeep
-
-/vim/backups/*
-!/vim/backups/.gitkeep
-
-/vim/plugged
-
-.netrwhist
-
+# Wthie list
+/*
 
 # tmux
-/tmux/plugins
+!/tmux.conf
+
+# nvim
+!/nvim
+/nvim/.netrwhist
