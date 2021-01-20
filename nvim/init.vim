@@ -19,6 +19,7 @@ if dein#load_state('~/.cache/dein')
 
   " Add or remove your plugins here like this:
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
 
   " Required:
   call dein#end()
@@ -64,4 +65,12 @@ nnoremap <F5> :vsplit $MYVIMRC<CR>
 " source right after editing vimrc
 nnoremap <F4> :<C-u>source $MYVIMRC<CR>
 
+nnoremap <C-w>_ :split<CR><C-w>w
+nnoremap <C-w>\| :vsplit<CR><C-w>w
+
+
+nnoremap <SPACE>t4
+            \ :set ts=4 tabstop=4 shiftwidth=4<CR>
+nnoremap <SPACE>t2
+            \ :set ts=2 tabstop=2 shiftwidth=2<CR>
 

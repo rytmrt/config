@@ -1,4 +1,6 @@
-nnoremap <silent><space>f :<C-u>Defx<CR>
+"nnoremap <silent><space>f :<C-u>Defx -split=vertical -winwidth=50 -toggle<CR>
+nnoremap <silent><space>f :<C-u>Defx -listed -resume -buffer-name=tab`tabpagenr()`<CR>
+nnoremap <silent><space>F :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
