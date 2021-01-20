@@ -7,3 +7,6 @@
 # nvim
 !/nvim
 /nvim/.netrwhist
+
+# zsh
+!/zsh
